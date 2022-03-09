@@ -69,6 +69,7 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     bindex (0.8.1)
+    blueprinter (0.25.3)
     bootsnap (1.10.3)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -82,6 +83,15 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    committee (4.4.0)
+      json_schema (~> 0.14, >= 0.14.3)
+      openapi_parser (>= 0.11.1, < 1.0)
+      rack (>= 1.5)
+    committee-rails (0.5.1)
+      actionpack
+      activesupport
+      committee (>= 3.0.0)
+      railties
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     debug (1.4.0)
@@ -108,9 +118,7 @@ GEM
     io-wait (0.2.1)
     irb (1.4.1)
       reline (>= 0.3.0)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
+    json_schema (0.21.0)
     loofah (2.14.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -140,11 +148,14 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
+    openapi_parser (0.15.0)
     public_suffix (4.0.6)
     puma (5.6.2)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (7.0.2.2)
@@ -238,14 +249,16 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  blueprinter
   bootsnap
   capybara
+  committee-rails
   debug
   factory_bot_rails
   faker
   importmap-rails
-  jbuilder
   puma (~> 5.0)
+  rack-cors
   rails (~> 7.0.2, >= 7.0.2.2)
   rspec-rails
   selenium-webdriver

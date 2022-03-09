@@ -1,0 +1,58 @@
+openapi: 3.0.3
+
+info:
+  version: 1.0.0
+  title: glee API
+
+paths:
+  /api/v1/article_groups:
+    get:
+      responses:
+        "200":
+          description: "success"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - article_groups
+                properties:
+                  article_groups:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ArticleGroup"
+
+components:
+  schemas:
+    ArticleGroup:
+      type: object
+      required:
+        - articles
+        - published_at
+      properties:
+        articles:
+          type: array
+          items:
+            $ref: "#/components/schemas/Article"
+        published_at:
+          type: string
+          nullable: true
+    Article:
+      type: object
+      required:
+        - title
+        - article_items
+      properties:
+        title:
+          type: string
+        article_items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ArticleItem"
+    ArticleItem:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          type: string
