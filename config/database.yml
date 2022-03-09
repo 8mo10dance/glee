@@ -22,4 +22,9 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  host: <%= ENV.fetch("RAILS_DATABASE_HOST") { '0.0.0.0' } %>
+  port: <%= ENV.fetch("RAILS_DATABASE_PORT") { '5432' } %>
+  database: glee
+  username: glee_user
+  password: <%= ENV.fetch("RAILS_DATABASE_PASSWORD") { 'password' } %>
