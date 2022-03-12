@@ -14,8 +14,9 @@ RUN bundle config set --local without 'development test'; \
     bundle install
 
 COPY . .
-RUN bundle exec rake db:migrate
-RUN bundle exec rails assets:precompile
+RUN bundle exec rake db:migrate; \
+    bundle exec rake db:seed_fu; \
+    bundle exec rails assets:precompile
 
 RUN chmod 744 /startup.sh
 
